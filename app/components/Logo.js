@@ -6,9 +6,9 @@ function Logo() {
 		<Link href="/" className="flex items-center gap-4 z-10">
 			<Image
 				src="/logo.png"
-				width={30}
-				height={30}
-				quality={100}
+				width={60}
+				height={60}
+				// quality={100}
 				alt="The Wild Oasis logo"
 			/>
 			<span className="text-xl font-semibold text-blue-100">
