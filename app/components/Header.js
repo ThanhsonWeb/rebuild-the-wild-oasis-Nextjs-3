@@ -3,9 +3,11 @@ import Navigation from "./Navigation";
 
 function Header() {
 	return (
-		<header className=" flex items-center justify-between p-5  ">
-			<Logo />
-			<Navigation />
+		<header className="border-b border-primary-900 px-8 py-5">
+			<div className="flex justify-between items-center max-w-7xl mx-auto">
+				<Logo />
+				<Navigation />
+			</div>
 		</header>
 	);
 }

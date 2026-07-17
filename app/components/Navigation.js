@@ -2,16 +2,31 @@ import Link from "next/link";
 
 function Navigation() {
 	return (
-		<nav>
-			<ul className="flex items-center justify-around gap-5 text-xl">
-				<li className="px-3">
-					<Link href="/cabins">Cabins</Link>
+		<nav className="z-10 text-xl">
+			<ul className="flex gap-16 items-center">
+				<li>
+					<Link
+						href="/cabins"
+						className="hover:text-accent-400 transition-colors"
+					>
+						Cabins
+					</Link>
 				</li>
-				<li className="px-3">
-					<Link href="/about">About</Link>
+				<li>
+					<Link
+						href="/about"
+						className="hover:text-accent-400 transition-colors"
+					>
+						About
+					</Link>
 				</li>
-				<li className="px-3">
-					<Link href="/account">Account</Link>
+				<li>
+					<Link
+						href="/account"
+						className="hover:text-accent-400 transition-colors"
+					>
+						Guest Area
+					</Link>
 				</li>
 			</ul>
 		</nav>
