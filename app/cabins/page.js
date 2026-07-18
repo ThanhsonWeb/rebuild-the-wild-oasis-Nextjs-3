@@ -3,14 +3,15 @@ import { getCabins } from "../_lib/data-service";
 import CabinCard from "../components/CabinCard";
 import CabinList from "../components/CabinList";
 import Spinner from "../components/Spinner";
+import Filter from "../components/Filter";
 
 export const metadata = {
 	title: "Cabins",
 };
 
-export default async function Page() {
-
-	const cabins = await getCabins();
+export default async function Page({ searchParams }) {
+	const query = await searchParams;
+	const filter = query?.capacity ?? "all";
 
 	return (
 		<div className="m-10">
@@ -26,8 +27,10 @@ export default async function Page() {
 				to paradise.
 			</p>
 
-			<Suspense fallback={<Spinner />}>
-				<CabinList cabins={cabins} />
+			<Filter />
+
+			<Suspense fallback={<Spinner />} key={filter}>
+				<CabinList filter={filter} />
 			</Suspense>
 		</div>
 	);
