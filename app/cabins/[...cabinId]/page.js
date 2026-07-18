@@ -1,6 +1,8 @@
 import { getCabin } from "@/app/_lib/data-service";
+import TextExpander from "@/app/components/TextExpander";
 import { EyeSlashIcon, MapPinIcon, UsersIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata({ params }) {
 	const { cabinId } = await params;
@@ -15,6 +17,7 @@ export default async function Page({ params }) {
 	const { id, name, maxCapacity, regularPrice, discount, image, description } =
 		cabin;
 
+	if (!cabin) notFound();
 	return (
 		<div className="max-w-6xl mx-auto mt-8">
 			<div className="grid grid-cols-[3fr_4fr] gap-20 border border-primary-800 py-3 px-10 mb-24">
@@ -28,11 +31,13 @@ export default async function Page({ params }) {
 				</div>
 
 				<div>
-					<h3 className="text-accent-100 font-black text-7xl mb-5 translate-x-[-254px] bg-primary-950 p-6 pb-1 w-[150%]">
+					<h3 className="text-accent-100 font-black text-7xl mb-5 translate-x-[-254px]  p-6 pb-1 w-[130%]">
 						Cabin {name}
 					</h3>
 
-					<p className="text-lg text-primary-300 mb-10">{description}</p>
+					<p className="text-lg text-primary-300 mb-10">
+						<TextExpander>{description}</TextExpander>
+					</p>
 
 					<ul className="flex flex-col gap-4 mb-7">
 						<li className="flex gap-3 items-center">
