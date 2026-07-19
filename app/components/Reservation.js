@@ -1,8 +1,11 @@
+import { auth } from "../_lib/auth";
 import { getSettings } from "../_lib/data-service";
 import DateSelector from "./DateSelector";
 import ReservationForm from "./ReservationForm";
 
 async function Reservation({ cabin }) {
+	const session = await auth();
+	console.log(session);
 	const settings = await getSettings();
 	console.log(settings);
 	console.log(cabin);
@@ -10,7 +13,7 @@ async function Reservation({ cabin }) {
 	return (
 		<div className="grid lg:grid-cols-[1fr_1fr] gap-3">
 			<DateSelector cabin={cabin} settings={settings} />
-			<ReservationForm cabin={cabin} />
+			<ReservationForm cabin={cabin} user={session.user} />
 		</div>
 	);
 }
