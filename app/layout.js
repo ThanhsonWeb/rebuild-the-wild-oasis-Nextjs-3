@@ -1,4 +1,5 @@
 import Header from "./components/Header";
+import { ReservationProvider } from "./contexts/ReservationContext";
 import "./styles/globals.css";
 import { Roboto } from "next/font/google";
 const roboto = Roboto({
@@ -19,7 +20,9 @@ export default function RootLayout({ children }) {
 		<html lang="en">
 			<body className={` ${roboto.className} min-h-screen flex flex-col`}>
 				<Header />
-				<main className="flex-1 mx-auto w-full">{children}</main>
+				<main className="flex-1 mx-auto w-full">
+					<ReservationProvider>{children}</ReservationProvider>
+				</main>
 			</body>
 		</html>
 	);
