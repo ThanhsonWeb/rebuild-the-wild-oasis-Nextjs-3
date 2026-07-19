@@ -1,5 +1,6 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
+import { createGuest, getGuest } from "./data-service";
 
 // NextAuth configuration.
 const authConfig = {
@@ -9,11 +10,22 @@ const authConfig = {
 			clientSecret: process.env.AUTH_GOOGLE_SECRET,
 		}),
 	],
+	pages: { signIn: "login" },
 
 	callbacks: {
 		authorized({ auth }) {
-			console.log("AUTH:", auth);
 			return auth?.user ? true : false;
+		},
+		// store user info into supabase
+		async signIn({ user }) {
+			try {
+				const existingGuest = await getGuest(user.email);
+				if (!existingGuest)
+					await createGuest({ email: user.email, fullName: user.name });
+				return true;
+			} catch {
+				return false;
+			}
 		},
 	},
 };

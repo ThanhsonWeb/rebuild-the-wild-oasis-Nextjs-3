@@ -35,3 +35,28 @@ export async function getSettings() {
 
 	return data;
 }
+
+export async function getGuest(email) {
+	const { data, error } = await supabase
+		.from("guests")
+		.select("*")
+		.eq("email", email)
+		.maybeSingle();
+	if (error) throw error;
+
+	return data;
+}
+
+export async function createGuest(newGuest) {
+	const { data, error } = await supabase
+		.from("guests")
+		.insert(newGuest)
+		.select()
+		.single();
+
+	if (error) {
+		throw new Error("Guest could not be created");
+	}
+
+	return data;
+}
