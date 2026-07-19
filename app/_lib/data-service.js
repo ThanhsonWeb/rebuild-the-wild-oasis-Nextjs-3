@@ -20,8 +20,17 @@ export async function getCabin(cabinId) {
 		.single();
 
 	if (error) {
-      
 		throw new Error("Cabin could not be fetch");
+	}
+
+	return data;
+}
+
+export async function getSettings() {
+	const { data, error } = await supabase.from("settings").select("*").single();
+
+	if (error) {
+		throw new Error("Settings could not be fetch");
 	}
 
 	return data;
