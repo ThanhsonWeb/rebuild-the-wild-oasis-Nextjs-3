@@ -1,6 +1,6 @@
 import { getCabin } from "@/app/_lib/data-service";
-import Reservation from "@/app/components/Reservation";
-import TextExpander from "@/app/components/TextExpander";
+import Reservation from "@/app/_components/Reservation";
+import TextExpander from "@/app/_components/TextExpander";
 import { EyeSlashIcon, MapPinIcon, UsersIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import { notFound } from "next/navigation";

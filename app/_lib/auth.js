@@ -32,7 +32,7 @@ const authConfig = {
 
 export const {
 	auth, // check current info's user
-	handlers: { GET, POST },
+	handlers: { GET, POST }, // request handlers
 	signIn,
 	signOut,
 } = NextAuth(authConfig);

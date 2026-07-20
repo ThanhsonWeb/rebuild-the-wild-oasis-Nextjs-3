@@ -1,6 +1,6 @@
-import Header from "./components/Header";
+import Header from "./_components/Header";
 import { ReservationProvider } from "./contexts/ReservationContext";
-import "./styles/globals.css";
+import "./_styles/globals.css";
 import { Roboto } from "next/font/google";
 const roboto = Roboto({
 	subsets: ["Latins"],

@@ -1,4 +1,12 @@
 import { supabase } from "./supabase";
+// Countries Flag
+import countriesData from "./countries.json";
+export function getCountries() {
+	return countriesData?.map((c) => ({
+		name: c.name,
+		flag: `https://flagcdn.com/w320/${c.code}.png`, // attach flag URL
+	}));
+}
 
 // -------------------------------GET--------------
 export async function getCabins() {

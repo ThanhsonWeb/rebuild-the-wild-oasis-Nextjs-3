@@ -1,10 +1,10 @@
 import { Suspense } from "react";
 import { getCabins } from "../_lib/data-service";
-import CabinCard from "../components/CabinCard";
-import CabinList from "../components/CabinList";
-import Spinner from "../components/Spinner";
-import Filter from "../components/Filter";
-import ReservationReminder from "../components/ReservationReminder";
+import CabinCard from "../_components/CabinCard";
+import CabinList from "../_components/CabinList";
+import Spinner from "../_components/Spinner";
+import Filter from "../_components/Filter";
+import ReservationReminder from "../_components/ReservationReminder";
 
 export const metadata = {
 	title: "Cabins",
