@@ -1,5 +1,6 @@
 import SelectCountry from "@/app/_components/SelectCountry";
 import { UpdateProfile } from "../_lib/actions";
+import ButtonSubmit from "./ButtonSubmit";
 function UpdateProfileForm({ guest }) {
 	const { countryFlag, nationality, nationalID, fullName, email } = guest;
 	return (
@@ -55,9 +56,7 @@ function UpdateProfileForm({ guest }) {
 			</div>
 
 			<div className="flex justify-end items-center gap-6">
-				<button className="bg-yellow-700 px-8 py-4 text-primary-800 font-semibold hover:bg-yellow-600 transition-all disabled:cursor-not-allowed disabled:bg-gray-500 disabled:text-gray-300">
-					Update profile
-				</button>
+				<ButtonSubmit> Update Profile </ButtonSubmit>
 			</div>
 		</form>
 	);
