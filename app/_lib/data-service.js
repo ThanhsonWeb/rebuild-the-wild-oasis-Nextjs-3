@@ -81,3 +81,14 @@ export async function getBookings(guestId) {
 
 	return data;
 }
+
+export async function getBooking(cabinId) {
+	const { data, error } = await supabase
+		.from("bookings")
+		.select("*")
+		.eq("cabinId", cabinId)
+		.maybeSingle();
+	if (error) throw error;
+
+	return data;
+}

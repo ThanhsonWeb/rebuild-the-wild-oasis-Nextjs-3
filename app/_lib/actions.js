@@ -40,8 +40,6 @@ export async function DeleteBooking(bookingId) {
 	const session = await auth();
 	if (!session) throw new Error("Please log in first.");
 
-	//
-
 	const guest = await getGuest(session.user.email);
 
 	const { data, error } = await supabase
@@ -52,6 +50,5 @@ export async function DeleteBooking(bookingId) {
 	if (error) throw new Error("Could not Delete Booking ! ");
 
 	// RevalidatePath
-	revalidatePath("/account/reservations");
 	revalidatePath("/account/reservations");
 }
