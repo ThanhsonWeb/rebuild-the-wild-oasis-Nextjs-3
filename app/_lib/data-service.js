@@ -68,3 +68,16 @@ export async function createGuest(newGuest) {
 
 	return data;
 }
+
+export async function getBookings(guestId) {
+	const { data, error } = await supabase
+		.from("bookings")
+		.select(` *,cabins(name, image)`)
+		.eq("guestId", guestId);
+
+	if (error) {
+		throw new Error("bookings could not be fetch");
+	}
+
+	return data;
+}
